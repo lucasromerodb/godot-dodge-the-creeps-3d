@@ -17,6 +17,13 @@ This is the starter project for the video version of the First 3D Game tutorial 
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=800
+window/dpi/allow_hidpi=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [input]
 
 move_left={
@@ -49,6 +56,12 @@ jump={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="enemies"
+3d_physics/layer_3="world"
 
 [rendering]
 
