@@ -25,6 +25,9 @@ func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		direction.normalized()
 		$Pivot.look_at(translation + direction, Vector3.UP)
+		$AnimationPlayer.playback_speed = 4
+	else:
+		$AnimationPlayer.playback_speed = 1
 	
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
@@ -42,6 +45,8 @@ func _physics_process(delta):
 			if Vector3.UP.dot(collision.normal) > 0.1: # detect if collision comes from upside
 				mob.squash()
 				velocity.y = bounce_impulse
+				
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 func die():
 	emit_signal("hit")
